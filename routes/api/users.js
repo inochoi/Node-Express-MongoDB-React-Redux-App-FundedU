@@ -16,7 +16,6 @@ const validateLoginInput = require("../../validation/login");
 const User = require("../../models/User");
 
 //file upload
-
 const storage = multer.diskStorage({
     destination: "./public/uploads/",
     filename: function (req, file, cb) {
@@ -34,7 +33,7 @@ router.post("/upload/:id", (req, res) => {
         var path = req.file.path.substring(7);
 
         const { id } = req.params;
-        const newUpload = { img: {path: path, amount: req.body.amount, description: req.body.description} };
+        const newUpload = { img: { path: path, amount: req.body.amount, description: req.body.description } };
 
         User.findByIdAndUpdate(id, { $addToSet: newUpload }, { new: true }, (err, user) => {
             if (err) { res.status(500).send({ success: false, error: err.message }); }
@@ -148,9 +147,6 @@ router.post("/login", (req, res) => {
 
         bcrypt.compare(password, user.password).then(isMatch => {
             if (isMatch) {
-                // if (userType != user.userType) {
-                //     return res.status(404).json({ userTypeNoMatch: "User Type does not match" });
-                // }
                 const payload = {
                     id: user.id,
                     name: user.name,
@@ -179,6 +175,5 @@ router.post("/login", (req, res) => {
         })
     })
 })
-
 
 module.exports = router;

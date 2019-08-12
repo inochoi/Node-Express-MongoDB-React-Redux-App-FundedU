@@ -1,5 +1,3 @@
-// Imports: Dependencies
-// import {AsyncStorage} from 'AsyncStorage';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
@@ -13,7 +11,7 @@ import rootReducer from '../reducers'
 const middleware = [thunk];
 
 // Middleware: Redux Logger (For Development)
-if (process.env.NODE_ENV !== 'production') {  
+if (process.env.NODE_ENV !== 'production') {
   middleware.push(createLogger());
 }
 
@@ -23,20 +21,11 @@ const persistConfig = {
   key: 'root',
   // Storage Method (React Native)
   storage,
-  // Whitelist (Save Specific Reducers)
-//   whitelist: [
-//     ['rootReducer'],
-//   ],
-  // Blacklist (Don't Save Specific Reducers)
-//   blacklist: [
-//     'counterReducer',
-//   ],
 };
 
 // Middleware: Redux Persist Persisted Reducer
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
 
 // Redux: Store
 const store = createStore(

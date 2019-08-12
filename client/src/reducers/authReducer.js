@@ -1,5 +1,5 @@
-import { CURRENT_USER, ADD_ASSOCIATE, ADD_IMG } from '../constants'
-import isEmpty from '../is-empty';
+import { CURRENT_USER } from '../constants'
+import isEmpty from './is-empty';
 
 const initialState = {
     isAuthenticated: false,
@@ -15,16 +15,16 @@ const authReducer = (state = initialState, action) => {
                 user: action.payload
             }
 
-        case ADD_ASSOCIATE:
-            return {
-                ...state,
-                user: { ...state.user, funding: action.payload.funding }
-            };
-        case ADD_IMG:
-            return {
-                ...state,
-                user: { ...state.user, img: action.payload.img }
-            };
+        // case ADD_ASSOCIATE:
+        //     return {
+        //         ...state,
+        //         user: { ...state.user, funding: action.payload.funding }
+        //     };
+        // case ADD_IMG:
+        //     return {
+        //         ...state,
+        //         user: { ...state.user, img: action.payload.img }
+        //     };
         default:
             return state;
     }

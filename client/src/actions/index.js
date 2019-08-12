@@ -90,9 +90,6 @@ export const addStudent = (funderId, studentId) => async dispatch => {
 export const addFunder = (studentId, funderId) => async dispatch => {
 
   await axios.put(`http://localhost:5001/api/users/associate/${studentId}`, funderId)
-    // .then(res => {
-    //   dispatch({ type: 'ADD_ASSOCIATE', payload: res.data.data });
-    // })
     .catch(err => {
       dispatch({
         type: GET_ERRORS,

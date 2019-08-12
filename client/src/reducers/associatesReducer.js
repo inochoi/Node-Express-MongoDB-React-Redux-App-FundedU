@@ -1,4 +1,4 @@
-import {GET_ASSOCIATE, CLEAR_STUDENT} from '../constants/index';
+import { GET_ASSOCIATE, CLEAR_STUDENT, ADD_ASSOCIATE, ADD_IMG } from '../constants/index';
 
 const initialState = []
 
@@ -10,11 +10,21 @@ const associatesReducer = (state = initialState, action) => {
                 return [...state, action.payload];
             return state;
 
-           
-
         case CLEAR_STUDENT:
             return action.payload;
-            
+
+        case ADD_ASSOCIATE:
+            return {
+                ...state,
+                user: { ...state.user, funding: action.payload.funding }
+            };
+
+        case ADD_IMG:
+            return {
+                ...state,
+                user: { ...state.user, img: action.payload.img }
+            };
+
         default:
             return state;
     }

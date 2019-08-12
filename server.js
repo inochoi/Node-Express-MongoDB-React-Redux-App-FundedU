@@ -4,8 +4,6 @@ const bodyParser = require("body-parser");
 const passport = require("passport");
 const users = require("./routes/api/users");
 const cors = require('cors');
-const multer = require('multer');
-const path = require('path');
 
 const app = express();
 
@@ -17,8 +15,6 @@ var corsOptions = {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors(corsOptions));
-
-
 
 app.use(
     bodyParser.urlencoded({
@@ -44,9 +40,7 @@ require("./config/passport")(passport);
 
 app.use("/api/users", users);
 
-// var publicDir = require('path').join(__dirname, '/public');
-// app.use(express.static(publicDir));
 app.use(express.static('public'));
 
-const port = 5001;
+const port = 5000;
 app.listen(port, () => console.log(`Server up and running on port ${port}`));
