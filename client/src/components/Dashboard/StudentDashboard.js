@@ -190,7 +190,7 @@ const StudentDashboard = () => {
                   return (
                     <tr key={index}>
                       <td>{id}</td>
-                      <td><a href={`http://localhost:5001/${receipt.path}`}>{receipt.description}</a></td>
+                      <td><a href={`http://localhost:5000/${receipt.path}`}>{receipt.description}</a></td>
                       <td>{formatter.format(receipt.amount)}</td>
                     </tr>
                   )

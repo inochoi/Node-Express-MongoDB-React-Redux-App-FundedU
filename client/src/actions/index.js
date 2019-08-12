@@ -5,7 +5,7 @@ import { REG_USER_ASYNC, CURRENT_USER, GET_ERRORS, CLEAR_STUDENT, GET_ASSOCIATE,
 
 export const registerUser = user => async dispatch => {
 
-  await axios.post('http://localhost:5001/api/users/register', user)
+  await axios.post('http://localhost:5000/api/users/register', user)
     .then(res => {
       dispatch({ type: REG_USER_ASYNC, payload: res.data.data });
     })
@@ -18,7 +18,7 @@ export const registerUser = user => async dispatch => {
 }
 
 export const loginUser = user => async dispatch => {
-  await axios.post('http://localhost:5001/api/users/login/', user)
+  await axios.post('http://localhost:5000/api/users/login/', user)
     .then(res => {
       const { token } = res.data;
       localStorage.setItem('jwtToken', token);
@@ -61,7 +61,7 @@ export const logoutUser = () => dispatch => {
 
 export const getAssociates = id => async dispatch => {
 
-  await axios.get(`http://localhost:5001/api/users/getassociate/${id}`)
+  await axios.get(`http://localhost:5000/api/users/getassociate/${id}`)
     .then(res => {
       dispatch({ type: GET_ASSOCIATE, payload: res.data.data });
     })
@@ -75,7 +75,7 @@ export const getAssociates = id => async dispatch => {
 
 export const addStudent = (funderId, studentId) => async dispatch => {
 
-  await axios.put(`http://localhost:5001/api/users/associate/${funderId}`, studentId)
+  await axios.put(`http://localhost:5000/api/users/associate/${funderId}`, studentId)
     .then(res => {
       dispatch({ type: ADD_ASSOCIATE, payload: res.data.data });
     })
@@ -89,7 +89,7 @@ export const addStudent = (funderId, studentId) => async dispatch => {
 
 export const addFunder = (studentId, funderId) => async dispatch => {
 
-  await axios.put(`http://localhost:5001/api/users/associate/${studentId}`, funderId)
+  await axios.put(`http://localhost:5000/api/users/associate/${studentId}`, funderId)
     .catch(err => {
       dispatch({
         type: GET_ERRORS,
@@ -99,7 +99,7 @@ export const addFunder = (studentId, funderId) => async dispatch => {
 }
 
 export const addReceipt = (id, formData, config) => async dispatch => {
-  await axios.post(`http://localhost:5001/api/users/upload/${id}`, formData, config)
+  await axios.post(`http://localhost:5000/api/users/upload/${id}`, formData, config)
     .then((res) => {
       alert("The file is successfully uploaded");
       dispatch({ type: ADD_IMG, payload: res.data.data });
