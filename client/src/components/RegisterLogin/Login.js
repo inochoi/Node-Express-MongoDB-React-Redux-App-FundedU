@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { loginUser } from "../../actions/index";
 import { useSelector, useDispatch } from "react-redux";
 import classnames from "classnames";
@@ -54,7 +54,7 @@ const Login = props => {
           <b>Login</b> below
         </h2>
         <h4>
-          Don't have an account? <Link to="/register"> Register </Link>
+          Don't have an account? <a href="/register">Register</a>
         </h4>
         <br />
 

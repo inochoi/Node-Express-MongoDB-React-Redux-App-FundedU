@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { registerUser } from "../../actions/index";
 import { useSelector, useDispatch } from "react-redux";
 import classnames from "classnames";
@@ -70,15 +70,15 @@ const Register = props => {
             <b>Register</b> below
           </h2>
           <h4>
-            Already have an account? <Link to="/login"> Login </Link>
+            Already have an account? <a href="/login">Login</a>
           </h4>
           <br />
         <form className="col s12" onSubmit={onSubmit}>
           <div className="row">
-            <div className="input-field col s6">
+            <div className="input-field col s6" id='selectUser'>
               <select
                 className="input-field col s12"
-                value={newUser.userType}
+                id='selectUser2'
                 name="userType"
                 onChange={onChange}
               >
