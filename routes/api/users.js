@@ -3,10 +3,8 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
-const IncomingForm = require('formidable').IncomingForm
 const multer = require('multer');
 const path = require("path");
-const fs = require('fs');
 
 // Load input validation
 const validateRegisterInput = require("../../validation/register");
