@@ -3,7 +3,6 @@ import { withRouter } from "react-router-dom";
 import { loginUser } from "../../actions/index";
 import { useSelector, useDispatch } from "react-redux";
 import classnames from "classnames";
-import "./Register.css";
 
 const Login = props => {
   const dispatch = useDispatch();
